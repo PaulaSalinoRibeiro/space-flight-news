@@ -34,7 +34,7 @@ export function Home() {
               title={item.title}
               imageUrl={item.imageUrl}
               summary={item.summary}
-              updatedAt={new Date(item.updatedAt).toLocaleDateString('pt-br') }
+              updatedAt={item.updatedAt}
               url={item.url}
               newsSite={item.newsSite}
             />

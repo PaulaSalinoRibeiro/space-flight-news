@@ -1,9 +1,11 @@
-import { Home } from './pages/Home'; 
+import { Home } from "./pages/Home";
+import { ThemeProvider } from "styled-components";
+import { theme } from "./global/theme";
 function App() {
   return (
-    <div>
+    <ThemeProvider theme={theme} >
       <Home />
-    </div>
+    </ThemeProvider>
   );
 }
 

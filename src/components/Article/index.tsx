@@ -19,7 +19,7 @@ export function Article({ imageUrl, title, updatedAt, newsSite, summary , id }: 
       <div>
         <h2>{title}</h2>
         <div>
-          <p>{updatedAt}</p>
+          <p>{new Date(updatedAt).toLocaleDateString('pt-br')}</p>
           <p>{newsSite}</p>
         </div>
         <p>{summary}</p>
