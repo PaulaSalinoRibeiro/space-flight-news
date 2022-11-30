@@ -15,9 +15,13 @@ export const articlesSlice = createSlice({
       state.articles = [...action.payload]
       state.filtered = [...action.payload]
     },
+    setSearch: (state, action: PayloadAction<string>) => {
+      state.filtered = state.articles
+      .filter(item => item.title.toLocaleLowerCase().includes(action.payload.toLowerCase()))
+    },
   },
 });
 
-export const { setArticles } = articlesSlice.actions;
+export const { setArticles, setSearch } = articlesSlice.actions;
 
 export default articlesSlice.reducer;
