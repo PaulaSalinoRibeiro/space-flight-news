@@ -7,6 +7,6 @@ export const fetchApi = async (endpoit: string) => {
     return data;
   } catch (error: any) {
     console.log('Error fetch api', error.message);
-    return null
+    return null;
   }
 }
