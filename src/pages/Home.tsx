@@ -1,13 +1,14 @@
 import { useEffect } from "react";
-import { fetchApi } from "../api"; 
-
+import { fetchApi } from "../api";
+import { useDispatch } from "react-redux";
+import { setArticles } from "../app/articlesSlice";
 export function Home() {
-
+  const dispatch = useDispatch();
   useEffect(() => {
     fetchApi('articles')
-    .then(data => console.log(data))
+    .then(data => dispatch(setArticles(data)))
     .catch(erro => console.log(erro))
-  }, [])
+  }, [dispatch]);
 
   return (
     <>
