@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setSearch } from "../../../app/articlesSlice";
 
 export function SearchInput() {
-  const [search, setSearch] = useState<string>('');
+  const dispatch = useDispatch();
+  
   
   return (
     <div>
@@ -9,9 +11,7 @@ export function SearchInput() {
         <input
           type="text"
           placeholder="Pesquisar"
-          name="search"
-          value={search}
-          onChange={ (e) => setSearch(e.target.value)}  
+          onChange={ ({target}) => dispatch(setSearch(target.value))}  
         />
       </label>
     </div>
