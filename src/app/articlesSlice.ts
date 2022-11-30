@@ -21,10 +21,11 @@ export const articlesSlice = createSlice({
       .filter(item => item.title.toLocaleLowerCase().includes(action.payload.toLowerCase()))
     },
     searchDate: (state, action: PayloadAction<string>) => {
-      if (action.payload === 'old') {
-        state.filtered = state.articles.sort((a, b) => Date.parse(b.updatedAt) - Date.parse(a.updatedAt))
-      } else {
+      console.log(action.payload)
+      if (action.payload === 'olds') {
         state.filtered = state.articles.sort((a, b) => Date.parse(a.updatedAt) - Date.parse(b.updatedAt))
+      } else {
+        state.filtered = state.articles.sort((a, b) => Date.parse(b.updatedAt) - Date.parse(a.updatedAt))
       }
     },
   },

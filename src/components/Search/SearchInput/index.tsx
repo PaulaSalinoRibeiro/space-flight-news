@@ -4,7 +4,6 @@ import { setSearch } from "../../../app/articlesSlice";
 export function SearchInput() {
   const dispatch = useDispatch();
   
-  
   return (
     <div>
       <label>
