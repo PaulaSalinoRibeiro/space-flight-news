@@ -1,47 +1,53 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../app/store";
+import { setModal } from "../../app/articlesSlice";
 
-interface IProps {
-  id: number;
-}
-export function Modal({ id }: IProps) {
+import * as S from "./styled";
+
+export function Modal() {
+  const dispatch = useDispatch();
+
   const { modal } = useSelector((state:RootState) => state.articles)!;
 
-
-  const handleClick = () => {};
+  const handleClick = () => {
+    dispatch(setModal(0))
+  };
 
   return (
-    <div>
+    <S.Container>
       <div>
-        <button
+        <S.CloseButton
           onClick={handleClick}
           type="button"
         >
           x
-        </button>
+        </S.CloseButton>
       </div>
-      <div>
-        <img src={modal?.imageUrl} alt={modal?.title} />
-        <div>
-          <h2>{modal?.title}</h2>
-          <div>
-            <p>
+      <S.Context>
+        <S.Image
+          src={modal?.imageUrl}
+          alt={modal?.title}
+        />
+        <S.Infos>
+          <S.Title>{modal?.title}</S.Title>
+          <S.SubContainer>
+            <S.Date>
               {new Date(modal?.updatedAt || '').toLocaleDateString('pt-br')}
-            </p>
-            <p>{modal?.newsSite}</p>
-          </div>
-          <p>{modal?.summary}</p>
-        </div>
-      </div>
-      <div>
-        <a
+            </S.Date>
+            <S.Tag>{modal?.newsSite}</S.Tag>
+          </S.SubContainer>
+          <S.Text>{modal?.summary}</S.Text>
+        </S.Infos>
+      </S.Context>
+      <S.LinkContainer>
+        <S.Link
           href={modal?.url}
           target="_blank"
           rel="noreferrer"
         >
           Ir para site
-        </a>
-      </div>
-    </div>
+        </S.Link>
+      </S.LinkContainer>
+    </S.Container>
   )
 }

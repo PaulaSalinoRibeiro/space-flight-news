@@ -8,12 +8,13 @@ import { SearchInput } from "../../components/Search/SearchInput";
 import { Banner } from "../../components/Banner";
 import { Article } from "../../components/Article"; 
 import { Loading } from "../../components/Loading";
+import { Modal } from "../../components/Modal";
 
 import * as S from "./styled";
 
 export function Home() {
   const dispatch = useDispatch();
-  const { filtered } = useSelector((state: RootState) => state.articles);
+  const { filtered, showModal } = useSelector((state: RootState) => state.articles);
   useEffect(() => {
     fetchApi('articles')
     .then(data => dispatch(setArticles(data)))
@@ -48,6 +49,9 @@ export function Home() {
         }
         <Loading />
       </main>
+      {
+        showModal && <Modal />
+      }
     </S.Container>
   )
 }
