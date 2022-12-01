@@ -2,6 +2,8 @@
 
 ## Descrição
 
+O projeto consiste de uma aplicação que lista articles proveninetes da API [The Space Dev](https://thespacedevs.com/)
+
 ## Tecnologias utilizadas
 
 - React
