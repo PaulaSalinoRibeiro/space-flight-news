@@ -1,12 +1,14 @@
 import { useEffect } from "react";
-import { fetchApi } from "../api";
+import { fetchApi } from "../../api";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../app/store";
-import { setArticles } from "../app/articlesSlice";
-import { SearchInput } from "../components/Search/SearchInput"; 
-import { SearchDate } from "../components/Search/SearchDate";
-import { Banner } from "../components/Banner";
-import { Article } from "../components/Article"; 
+import { RootState } from "../../app/store";
+import { setArticles } from "../../app/articlesSlice";
+import { SearchDate } from "../../components/Search/SearchDate";
+import { SearchInput } from "../../components/Search/SearchInput";
+import { Banner } from "../../components/Banner";
+import { Article } from "../../components/Article"; 
+
+import * as S from "./styled";
 export function Home() {
   const dispatch = useDispatch();
   const { filtered } = useSelector((state: RootState) => state.articles);
@@ -17,14 +19,14 @@ export function Home() {
   }, [dispatch]);
 
   return (
-    <>
-      <header>
+    <S.Container>
+      <S.Header>
         <div>
           <SearchInput />
           <SearchDate />
         </div>
         <Banner />
-      </header>
+      </S.Header>
       <main>
         {
           filtered.map(item => (
@@ -41,6 +43,6 @@ export function Home() {
           ))
         }
       </main>
-    </>
+    </S.Container>
   )
 }
