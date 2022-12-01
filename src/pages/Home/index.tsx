@@ -9,6 +9,7 @@ import { Banner } from "../../components/Banner";
 import { Article } from "../../components/Article"; 
 
 import * as S from "./styled";
+import { Loading } from "../../components/Loading";
 export function Home() {
   const dispatch = useDispatch();
   const { filtered } = useSelector((state: RootState) => state.articles);
@@ -26,11 +27,13 @@ export function Home() {
           <SearchDate />
         </div>
         <Banner />
+        <S.Line />
       </S.Header>
       <main>
         {
-          filtered.map(item => (
+          filtered.map((item, index) => (
             <Article
+              isTrue={index % 2 === 0}
               key={item.id}
               id={item.id}
               title={item.title}
@@ -42,6 +45,7 @@ export function Home() {
             />
           ))
         }
+        <Loading />
       </main>
     </S.Container>
   )

@@ -11,7 +11,7 @@ export const Container = styled.div`
 export const Image = styled.img`
   border-radius: ${({theme}) => theme.borderRadius};
   box-shadow: ${({theme}) => theme.shadow.secondary};
-  margin-right: 2rem;
+  margin: 2rem;
   width: 18rem;
 `;
 
@@ -50,7 +50,6 @@ export const Tag = styled.p`
   padding: .4rem;
 `;
 
-
 export const Text = styled.p`
   color: ${({theme}) => theme.colors.terciary};
   font-family: Roboto;
@@ -68,7 +67,6 @@ export const Button = styled.button`
   font-family: Roboto;
   font-weight: bold;
   font-size: 1rem;
-  margin: 0 auto;
   padding: 0.5rem;
   width: 8rem;
 `;

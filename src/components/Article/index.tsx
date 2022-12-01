@@ -1,7 +1,7 @@
-import { SearchDate } from "../Search/SearchDate";
 import * as S from "./styled";
 
 interface Props {
+  isTrue: boolean;
   id: number;
   imageUrl: string;
   newsSite: string;
@@ -11,13 +11,13 @@ interface Props {
   updatedAt: string;
 }
 
-export function Article({ imageUrl, title, updatedAt, newsSite, summary , id }: Props) {
+export function Article({ imageUrl, title, updatedAt, newsSite, summary , id, isTrue }: Props) {
   const openModal = (id: number) => {
     console.log(id)
   };
 
   return (
-    <S.Container>
+    <S.Container style={ isTrue ? {flexDirection: "row-reverse"} : { flexDirection: "row" } }>
       <S.Image
         src={imageUrl}
         alt={title}
