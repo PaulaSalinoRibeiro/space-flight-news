@@ -12,4 +12,6 @@ export interface ArticlesState {
   articles: IArticle[];
   filtered: IArticle[];
   searchTitle: IArticle[];
+  modal: IArticle | null;
+  showModal: boolean;
 }

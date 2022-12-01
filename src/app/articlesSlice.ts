@@ -5,6 +5,8 @@ const initialState: ArticlesState = {
   articles: [],
   filtered: [],
   searchTitle: [],
+  modal: null,
+  showModal: false,
 };
 
 export const articlesSlice = createSlice({
@@ -27,9 +29,13 @@ export const articlesSlice = createSlice({
         state.filtered = state.articles.sort((a, b) => Date.parse(b.updatedAt) - Date.parse(a.updatedAt))
       }
     },
+    setModal: (state, action: PayloadAction<number>) => {
+      state.showModal = !state.showModal
+      state.modal = state.articles.find(article => article.id === action.payload)!
+    },
   },
 });
 
-export const { setArticles, setSearch, searchDate } = articlesSlice.actions;
+export const { setArticles, setSearch, searchDate, setModal } = articlesSlice.actions;
 
 export default articlesSlice.reducer;

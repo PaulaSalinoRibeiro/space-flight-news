@@ -1,3 +1,6 @@
+import { useDispatch } from "react-redux";
+import { setModal } from "../../app/articlesSlice";
+
 import * as S from "./styled";
 
 interface Props {
@@ -12,8 +15,10 @@ interface Props {
 }
 
 export function Article({ imageUrl, title, updatedAt, newsSite, summary , id, isTrue }: Props) {
+  const dispatch = useDispatch();
+  
   const openModal = (id: number) => {
-    console.log(id)
+    dispatch(setModal(id))
   };
 
   return (

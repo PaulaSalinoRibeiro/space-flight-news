@@ -7,9 +7,10 @@ import { SearchDate } from "../../components/Search/SearchDate";
 import { SearchInput } from "../../components/Search/SearchInput";
 import { Banner } from "../../components/Banner";
 import { Article } from "../../components/Article"; 
+import { Loading } from "../../components/Loading";
 
 import * as S from "./styled";
-import { Loading } from "../../components/Loading";
+
 export function Home() {
   const dispatch = useDispatch();
   const { filtered } = useSelector((state: RootState) => state.articles);
