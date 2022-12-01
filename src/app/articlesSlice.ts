@@ -18,7 +18,6 @@ export const articlesSlice = createSlice({
       state.filtered = [...action.payload]
     },
     setSearch: (state, action: PayloadAction<string>) => {
-      console.log(action.payload);
       state.filtered = state.articles
       .filter(item => item.title.toLocaleLowerCase().includes(action.payload.toLowerCase()))
     },
